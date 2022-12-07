@@ -1,6 +1,6 @@
 package com.sojourn.sojourn.controller;
 
-import com.sojourn.sojourn.entity.DataObject;
+import com.sojourn.sojourn.models.DataObject;
 import com.sojourn.sojourn.exceptions.DataNotFoundException;
 import com.sojourn.sojourn.service.ObjectService;
 import org.springframework.beans.factory.annotation.Autowired;

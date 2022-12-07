@@ -1,6 +1,6 @@
 package com.sojourn.sojourn.service;
 
-import com.sojourn.sojourn.entity.DataObject;
+import com.sojourn.sojourn.models.DataObject;
 import com.sojourn.sojourn.exceptions.DataNotFoundException;
 import com.sojourn.sojourn.repository.ObjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
