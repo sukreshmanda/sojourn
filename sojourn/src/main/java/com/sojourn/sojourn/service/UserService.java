@@ -1,9 +1,13 @@
 package com.sojourn.sojourn.service;
 
+import com.sojourn.sojourn.exceptions.UserAlreadyExistsException;
+import com.sojourn.sojourn.models.DataObject;
 import com.sojourn.sojourn.models.User;
 import com.sojourn.sojourn.models.UserRoles;
 import com.sojourn.sojourn.models.UserSignUpRequest;
 import com.sojourn.sojourn.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,27 +24,29 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
 
     @Autowired
+    private ObjectService objectService;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("username tried to login " + username);
         User user = userRepository.loadUserByUserName(username);
-        System.out.println(user);
         return user;
     }
 
-    public boolean checkIfUserExists(String username) {
-        if (userRepository.loadUserByUserName(username) != null) return true;
-        return false;
-    }
-
-    public void createUserWith(UserSignUpRequest userSignUpRequest) {
-        userRepository.save(
+    public User createUserWith(UserSignUpRequest userSignUpRequest) throws UserAlreadyExistsException {
+        if (userRepository.loadUserByUserName(userSignUpRequest.getUsername()) != null)
+            throw new UserAlreadyExistsException(userSignUpRequest.getUsername());
+        return userRepository.save(
                 User.builder()
                         .username(userSignUpRequest.getUsername())
                         .password(passwordEncoder.encode(userSignUpRequest.getPassword()))
                         .userRoles(List.of(UserRoles.USER)).build()
         );
+    }
+
+    public List<DataObject> getAllUserData(String userAccessing) {
+        return objectService.getAllUserData(userAccessing);
     }
 }

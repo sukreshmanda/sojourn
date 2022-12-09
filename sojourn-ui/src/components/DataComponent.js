@@ -6,7 +6,12 @@ import * as DOMPurify from 'dompurify';
 import {Link} from 'react-router-dom';
 
 function DataComponent() {
-    const [loading, data, errored] = useAPIHandler(() => axios.get("http://localhost:1234/data"));
+    const [loading, data, errored] = useAPIHandler(() => axios.get("http://localhost:1234/user/data", {
+        auth:{
+            username: "sukresh242",
+            password: "abcd"
+        }
+    }));
     return (
         <div className='container'>
             <Link to="/add-data"><i className="fa fa-plus add-item" aria-hidden="true"> Add new Item </i></Link>
