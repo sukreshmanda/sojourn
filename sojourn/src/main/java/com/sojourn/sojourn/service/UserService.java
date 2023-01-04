@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -48,5 +49,9 @@ public class UserService implements UserDetailsService {
 
     public List<DataObject> getAllUserData(String userAccessing) {
         return objectService.getAllUserData(userAccessing);
+    }
+
+    public void insertDataObject(Map dataObject, String userAccessing) {
+        objectService.createDataObject(userAccessing, dataObject);
     }
 }

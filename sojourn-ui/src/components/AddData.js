@@ -5,7 +5,7 @@ function AddData() {
     const textInput = useRef(null);
     const snackBar = useRef(null);
     let showSuccessSnackbar = () => {
-        snackBar.current.innerText = "Something went wrong"
+        snackBar.current.innerText = "Sucessfully added"
         snackBar.current.classList.add("show");
         setTimeout(() => {
             snackBar.current.classList.remove("show");
@@ -22,7 +22,11 @@ function AddData() {
         try{
             let value = JSON.parse(textInput.current.value);
             console.log(value);
-        axios.post("http://localhost:1234/data", value)
+            axios.post("http://localhost:1234/user/data", value, {
+                auth:{
+                    username: "sukresh242",
+                    password: "abcd"
+            }})
             .then((res) => {
                 showSuccessSnackbar();
             }, (error) => {
