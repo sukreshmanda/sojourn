@@ -13,8 +13,8 @@ import java.util.function.Function;
 
 @Component
 public class JWTUtil {
-    private final String SECRET = "mySecretKey";
-    private final int EXPIRATION = 60 * 60 * 10;
+    private static final String SECRET = "mySecretKey";
+    private static final int EXPIRATION = 60 * 60 * 10;
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
