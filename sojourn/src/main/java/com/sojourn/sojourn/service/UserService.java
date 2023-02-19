@@ -6,8 +6,6 @@ import com.sojourn.sojourn.models.User;
 import com.sojourn.sojourn.models.UserRoles;
 import com.sojourn.sojourn.models.UserSignUpRequest;
 import com.sojourn.sojourn.repository.UserRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -32,8 +30,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.loadUserByUserName(username);
-        return user;
+        return userRepository.loadUserByUserName(username);
     }
 
     public User createUserWith(UserSignUpRequest userSignUpRequest) throws UserAlreadyExistsException {
@@ -51,7 +48,7 @@ public class UserService implements UserDetailsService {
         return objectService.getAllUserData(userAccessing);
     }
 
-    public void insertDataObject(Map dataObject, String userAccessing) {
+    public void insertDataObject(Map<String, Object> dataObject, String userAccessing) {
         objectService.createDataObject(userAccessing, dataObject);
     }
 }

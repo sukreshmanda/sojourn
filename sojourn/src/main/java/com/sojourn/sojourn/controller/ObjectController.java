@@ -37,7 +37,7 @@ public class ObjectController {
     }
 
     @PostMapping("/data")
-    String putDataObject(Principal principal, @RequestBody Map map) {
+    String putDataObject(Principal principal, @RequestBody Map<String, Object> map) {
         logger.info("tried to insert a data object by user {}", principal.getName());
         return objectService.createDataObject(principal.getName(), map);
     }

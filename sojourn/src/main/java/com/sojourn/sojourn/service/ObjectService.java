@@ -1,8 +1,8 @@
 package com.sojourn.sojourn.service;
 
 import com.sojourn.sojourn.exceptions.AccessRestrictedException;
-import com.sojourn.sojourn.models.DataObject;
 import com.sojourn.sojourn.exceptions.DataNotFoundException;
+import com.sojourn.sojourn.models.DataObject;
 import com.sojourn.sojourn.models.User;
 import com.sojourn.sojourn.models.UserRoles;
 import com.sojourn.sojourn.repository.ObjectRepository;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +37,7 @@ public class ObjectService {
         else throw new AccessRestrictedException(dataObject.getId(), userAccessing);
     }
 
-    public String createDataObject(String userCreated, Map map) {
+    public String createDataObject(String userCreated, Map<String, Object> map) {
         String id = bytesToHex(sha256.digest(LocalDateTime.now().toString().getBytes(StandardCharsets.UTF_8)));
         DataObject dataObject = new DataObject(id, map, LocalDateTime.now(), List.of(userCreated));
         DataObject savedObject = objectRepository.save(dataObject);

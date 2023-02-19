@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useAPIHandler, { METHODS } from "../hooks/useAPIHandler";
-import axios from "axios";
 import syntaxHighlight from "./BeautifyJSON";
 import * as DOMPurify from "dompurify";
 import { Link } from "react-router-dom";

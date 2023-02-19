@@ -50,7 +50,7 @@ public class UserController {
         return userService.getAllUserData(principal.getName());
     }
     @PostMapping("/data")
-    public void insertUserData(Principal principal, @Valid @RequestBody Map dataObject){
+    public void insertUserData(Principal principal, @Valid @RequestBody Map<String, Object> dataObject){
         logger.info("tried to insert user data for user {}", principal.getName());
         userService.insertDataObject(dataObject, principal.getName());
     }
