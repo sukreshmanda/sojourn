@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 function TopPanel() {
   return (
-    <nav className="navbar">
+    <>
+      <nav className="navbar">
         <div className="navbar-container container">
             <input type="checkbox" name="" id="" />
             <div className="hamburger-lines">
@@ -18,7 +19,9 @@ function TopPanel() {
             </ul>
             <h1 className="logo">SOJOURN</h1>
         </div>
-    </nav>
+      </nav>
+      <br/>
+    </>
   )
 }
 
