@@ -30,9 +30,11 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+    
+    - name: Manual Build
+      run: |
+        cd sojourn; mvn clean install
+        cd ../sojourn-ui; npm install
       
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
