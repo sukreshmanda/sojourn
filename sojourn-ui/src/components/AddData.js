@@ -23,7 +23,7 @@ function AddData() {
       let value = JSON.parse(textInput.current.value);
       console.log(value);
       axios
-        .post("http://localhost:1234/user/data", value, {
+        .post(`${BACK_END_URL}/user/data`, value, {
           auth: {
             username: "sukresh242",
             password: "abcd",
