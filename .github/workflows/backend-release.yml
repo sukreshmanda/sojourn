@@ -1,4 +1,4 @@
-name: Sojourn-Release
+name: Backend-Release
 on:
   release:
     types: [published]

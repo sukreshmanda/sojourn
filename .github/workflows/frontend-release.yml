@@ -1,4 +1,4 @@
-name: SojournUI-Release
+name: Frontend-Release
 on:
   release:
     types: [published]

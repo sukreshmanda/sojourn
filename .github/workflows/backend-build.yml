@@ -1,4 +1,4 @@
-name: Sojourn-Build
+name: Backend-Build
 on:
   push:
     branches: [ "master" ]
