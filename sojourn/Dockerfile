@@ -1,6 +1,7 @@
 FROM maven:3.8-openjdk-18-slim as build
 WORKDIR /sojourn
 COPY . .
+RUN ls 
 RUN mvn clean package
 
 FROM openjdk:11.0.10-jre-slim
