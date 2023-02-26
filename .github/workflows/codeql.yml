@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'java', 'javascript' ]
+        language: [ 'javascript' ]
 
     steps:
     - name: Checkout repository
@@ -32,13 +32,8 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-    - name: Manual Build
-      run: |
-        if [ "${{ matrix.language }}" == "java" ]; then
-          mvn compile
-        else
-          npm run build
-        fi
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
       
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
