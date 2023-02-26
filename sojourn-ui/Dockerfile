@@ -8,4 +8,4 @@ RUN npm run build
 FROM nginx:stable-alpine as run
 WORKDIR /app
 COPY --from=build /sojourn/sojourn-ui/build /usr/share/nginx/html/
-RUN ls
+RUN ls /usr/share/nginx/html/
