@@ -7,5 +7,5 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jre-alpine as run
 WORKDIR /app
 COPY --from=build /sojourn/sojourn/target/sojourn-0.0.1-SNAPSHOT.jar .
-EXPOSE 8080
+EXPOSE 1234
 CMD ["java", "-jar", "sojourn-0.0.1-SNAPSHOT.jar"]
