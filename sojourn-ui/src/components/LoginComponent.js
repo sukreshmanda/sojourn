@@ -19,8 +19,9 @@ function LoginComponent() {
   }, []);
 
   const loginAction = useCallback(() => {
+    console.log(process.env);
     axios
-      .post(`${BACK_END_URL}/user/authenticate`, {
+      .post(`${process.env.BACK_END_URL}/user/authenticate`, {
         username: username,
         password: password,
       })
