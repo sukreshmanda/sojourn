@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sojourn-backend
+spec:
+  selector:
+    matchLabels:
+      app: sojourn-backend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sojourn-backend
+    spec:
+      containers:
+      - name: nginx
+        image: sukreshmanda/sojourn:latest
+        ports:
+        - containerPort: 1234
+
