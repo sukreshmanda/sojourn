@@ -32,7 +32,7 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-    
+        java-version: ${{matrix.language == 'java'' ? '17':'' }}
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
       
