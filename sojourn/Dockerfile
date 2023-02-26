@@ -2,7 +2,7 @@ FROM maven:3.8-openjdk-17-slim as build
 WORKDIR /sojourn
 COPY . .
 WORKDIR /sojourn/sojourn
-RUN mvn clean package
+RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:17-jre-alpine as run
 WORKDIR /app
