@@ -32,11 +32,6 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        
-    - name: Set up CodeQL
-      uses: github/codeql-action/setup@v1
-      with:
-        java-version: '17'
     
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
