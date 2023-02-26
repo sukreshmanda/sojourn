@@ -2,8 +2,6 @@
 
 project to store key-value data for temporary purpose
 
-
-
 ## Pre-requisite
 
 Install mongoDB in your local machine
@@ -14,10 +12,15 @@ Install front-end with npm & start
 
 ```bash
   cd sojourn-ui
-  npm install 
+  npm install
   npm start
 ```
-    
+
+Start from the docker
+
+```bash
+docker run -d -p 80:80 sukreshmanda/sojourn-ui:latest
+```
 
 ## Backend
 
@@ -28,11 +31,19 @@ Install backend with maven and start
   mvn clean install
   mvn spring-boot:run
 ```
-    
+
+Start from the docker
+
+```bash
+docker run -d -p 1234:1234 sukreshmanda/sojourn:latest
+```
+
 ## Technical Tools
+
 - Spring boot
 - ReactJs
 - MongoDB
+
 ## Features
 
 - Temporary storage of Json data in server
@@ -40,13 +51,10 @@ Install backend with maven and start
 - Programatical access (Basic & JWT)
 - Stateless
 
-
 ## 🚀 About Me
-I'm a software engineering with skills including backend, frontend, mobile, devops and many more.
 
+I'm a software engineering with skills including backend, frontend, mobile, devops and many more.
 
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
