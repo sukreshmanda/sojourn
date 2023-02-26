@@ -1,4 +1,4 @@
-name: Sojourn-Build
+name: SojournUI-Build
 on:
   push:
     branches: [ "master" ]
