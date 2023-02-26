@@ -7,8 +7,8 @@ RUN ls
 RUN mvn clean package
 RUN ls ./target
 
-# FROM openjdk:11.0.10-jre-slim
-# WORKDIR /app
-# COPY --from=build ./target/sojourn-0.0.1-SNAPSHOT.jar ./
-# EXPOSE 8080
+FROM openjdk:11.0.10-jre-slim
+WORKDIR /app
+COPY --from=build /sojourn/sojourn/target/sojourn-0.0.1-SNAPSHOT.jar .
+EXPOSE 8080
 CMD ["java", "-jar", "sojourn-0.0.1-SNAPSHOT.jar"]
