@@ -13,4 +13,4 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v3
       - name: build docker image
-        run: docker build . -f ./sojourn/Dockerfile -t sojourn:latest
+        run: docker build . -f ./sojourn-ui/Dockerfile -t sojourn:latest
