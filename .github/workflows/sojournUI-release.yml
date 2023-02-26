@@ -17,4 +17,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Docker image
-        run: docker build . -f ./sojourn-ui/Dockerfile -t sukreshmanda/sojourn-ui:latest
+        run: |
+          docker build . -f ./sojourn-ui/Dockerfile -t sukreshmanda/sojourn-ui:latest
+          docker push sukreshmanda/sojourn-ui:latest
