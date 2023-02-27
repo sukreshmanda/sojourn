@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sojourn-frontend
+spec:
+  selector:
+    matchLabels:
+      app: sojourn-frontend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sojourn-frontend
+    spec:
+      containers:
+      - name: nginx
+        image: sukreshmanda/sojourn-ui:latest
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-cluster-service
+spec:
+  type: ClusterIP
+  selector:
+    app: sojourn-frontend
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
