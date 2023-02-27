@@ -23,12 +23,16 @@ function AddData() {
       let value = JSON.parse(textInput.current.value);
       console.log(value);
       axios
-        .post(`${process.env.BACK_END_URL}/user/data`, value, {
-          auth: {
-            username: "sukresh242",
-            password: "abcd",
-          },
-        })
+        .post(
+          `${process.env.REACT_APP_SOJOURN_BACK_END_URL}:${process.env.REACT_APP_SOJOURN_BACK_END_PORT}/user/data`,
+          value,
+          {
+            auth: {
+              username: "sukresh242",
+              password: "abcd",
+            },
+          }
+        )
         .then(
           (res) => {
             showSuccessSnackbar();

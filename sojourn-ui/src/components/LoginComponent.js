@@ -19,12 +19,14 @@ function LoginComponent() {
   }, []);
 
   const loginAction = useCallback(() => {
-    console.log(process.env);
     axios
-      .post(`${process.env.BACK_END_URL}/user/authenticate`, {
-        username: username,
-        password: password,
-      })
+      .post(
+        `${process.env.REACT_APP_SOJOURN_BACK_END_URL}:${process.env.REACT_APP_SOJOURN_BACK_END_PORT}/user/authenticate`,
+        {
+          username: username,
+          password: password,
+        }
+      )
       .then((res) => {
         setIsAuthenticated(true);
         setToken(res.data["token"]);
