@@ -57,7 +57,7 @@ public class UserController {
 
     @PostMapping("/authenticate")
     public AuthenticationResponse authenticate(@RequestBody AuthenticationRequest authenticationrequest){
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationrequest.getUsername(), authenticationrequest.getPassword()));
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationrequest.getUsername(), authenticationrequest.getPassword()));
         UserDetails userDetails = userService.loadUserByUsername(authenticationrequest.getUsername());
         return new AuthenticationResponse(jwtUtil.generateToken(userDetails));
     }

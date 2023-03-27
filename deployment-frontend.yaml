@@ -6,14 +6,14 @@ spec:
   selector:
     matchLabels:
       app: sojourn-frontend
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
         app: sojourn-frontend
     spec:
       containers:
-      - name: nginx
+      - name: sojourn-frontend
         image: sukreshmanda/sojourn-ui:latest
         env:
           - name: REACT_APP_SOJOURN_BACK_END_URL

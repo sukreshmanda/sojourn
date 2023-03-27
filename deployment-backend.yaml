@@ -6,14 +6,14 @@ spec:
   selector:
     matchLabels:
       app: sojourn-backend
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
         app: sojourn-backend
     spec:
       containers:
-      - name: nginx
+      - name: sojourn-backend
         image: sukreshmanda/sojourn:latest
         env:
           - name: MONGO_HOST
