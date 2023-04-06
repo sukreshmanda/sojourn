@@ -4,7 +4,6 @@ COPY . .
 WORKDIR /sojourn/sojourn-ui
 RUN npm install
 RUN npm run build
-RUN ls build
 
 FROM nginx:stable-alpine as run
 WORKDIR /app
