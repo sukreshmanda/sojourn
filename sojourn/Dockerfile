@@ -1,7 +1,6 @@
 FROM maven:3.8-openjdk-17-slim as build
 WORKDIR /sojourn
 COPY . .
-WORKDIR /sojourn/sojourn
 # RUN mvn clean package -DskipTests
 RUN mvn clean install -DskipTests
 EXPOSE 1234
