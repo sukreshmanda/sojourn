@@ -1,7 +1,18 @@
-apiVersion: skaffold/v2beta11
+apiVersion: skaffold/v4beta3
 kind: Config
+metadata:
+  name: sojourn
 build:
   artifacts:
-  - image: sojourn-backend
-    docker:
-      dockerfile: ./sojourn/Dockerfile
+    - image: sukreshmanda/sojourn
+      context: sojourn
+      docker:
+        dockerfile: Dockerfile
+    - image: sukreshmanda/sojourn-ui
+      context: sojourn-ui
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - deployment-backend.yaml
+    - deployment-frontend.yaml
