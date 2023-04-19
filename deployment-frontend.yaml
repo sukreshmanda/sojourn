@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sojourn-frontend
+spec:
+  selector:
+    matchLabels:
+      app: sojourn-frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sojourn-frontend
+    spec:
+      containers:
+      - name: sojourn-frontend
+        image: sukreshmanda/sojourn-ui:latest
+        env:
+          - name: REACT_APP_SOJOURN_BACK_END_URL
+            value: backend-cluster-service
+          - name: REACT_APP_SOJOURN_BACK_END_PORT
+            value: "1234"
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-cluster-service
+spec:
+  type: ClusterIP
+  selector:
+    app: sojourn-frontend
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80

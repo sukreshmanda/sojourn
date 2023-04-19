@@ -7,6 +7,8 @@ on:
     branches: [ "master" ]
   schedule:
     - cron: '22 10 * * 2'
+  workflow_dispatch:
+
 
 jobs:
   analyze:
@@ -20,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'java', 'javascript' ]
+        language: [ 'javascript' ]
 
     steps:
     - name: Checkout repository
@@ -30,7 +32,6 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
       

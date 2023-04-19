@@ -7,7 +7,8 @@ function LoginComponent() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigate();
-  const { isAuthenticated, setToken, setIsAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, setToken, setIsAuthenticated } =
+    useContext(AuthContext);
 
   const handleUsernameChange = useCallback((event) => {
     setUsername(event.target.value);
@@ -19,10 +20,13 @@ function LoginComponent() {
 
   const loginAction = useCallback(() => {
     axios
-      .post("http://localhost:1234/user/authenticate", {
-        username: username,
-        password: password,
-      })
+      .post(
+        `${process.env.REACT_APP_SOJOURN_BACK_END_URL}:${process.env.REACT_APP_SOJOURN_BACK_END_PORT}/user/authenticate`,
+        {
+          username: username,
+          password: password,
+        }
+      )
       .then((res) => {
         setIsAuthenticated(true);
         setToken(res.data["token"]);
@@ -31,7 +35,7 @@ function LoginComponent() {
         console.log(err);
       });
   }, [username, password, setIsAuthenticated, setToken]);
-  
+
   const handleSubmit = useCallback(
     (event) => {
       event.preventDefault();
