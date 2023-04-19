@@ -9,12 +9,12 @@ import com.sojourn.sojourn.models.dto.auth.AuthenticationRequest;
 import com.sojourn.sojourn.models.dto.auth.AuthenticationResponse;
 import com.sojourn.sojourn.service.UserService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,22 +26,27 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    private final AuthenticationManager authenticationManager;
+
+    private final JWTUtil jwtUtil;
 
     @Autowired
-    private AuthenticationManager authenticationManager;
+    public UserController(UserService userService, AuthenticationManager authenticationManager, JWTUtil jwtUtil) {
+        this.userService = userService;
+        this.authenticationManager = authenticationManager;
+        this.jwtUtil = jwtUtil;
+    }
 
-    @Autowired
-    private JWTUtil jwtUtil;
-
-    Logger logger = LoggerFactory.getLogger(UserController.class);
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @PostMapping("/signup")
-    public void signUp(@Valid @RequestBody UserSignUpRequest userSignUpRequest) throws UserAlreadyExistsException {
+    public @NotNull String signUp(@Valid @RequestBody UserSignUpRequest userSignUpRequest) throws UserAlreadyExistsException {
         logger.info("tried to create account with username {}", userSignUpRequest.getUsername());
         User userCreated = userService.createUserWith(userSignUpRequest);
         logger.info("successfully created account for user {}", userCreated.getId());
+        return userCreated.getUsername();
     }
 
     @GetMapping("/data")
@@ -50,9 +55,9 @@ public class UserController {
         return userService.getAllUserData(principal.getName());
     }
     @PostMapping("/data")
-    public void insertUserData(Principal principal, @Valid @RequestBody Map<String, Object> dataObject){
+    public String insertUserData(Principal principal, @Valid @RequestBody Map<String, Object> dataObject){
         logger.info("tried to insert user data for user {}", principal.getName());
-        userService.insertDataObject(dataObject, principal.getName());
+        return userService.insertDataObject(dataObject, principal.getName());
     }
 
     @PostMapping("/authenticate")

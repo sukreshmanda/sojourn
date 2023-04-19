@@ -17,10 +17,14 @@ import org.slf4j.LoggerFactory;
 @RestController
 public class ObjectController {
 
-    @Autowired
-    private ObjectService objectService;
+    private final ObjectService objectService;
+    private final Logger logger = LoggerFactory.getLogger(ObjectController.class);
 
-    Logger logger = LoggerFactory.getLogger(ObjectController.class);
+
+    @Autowired
+    public ObjectController(ObjectService objectService) {
+        this.objectService = objectService;
+    }
 
     @GetMapping("/data")
     List<DataObject> getAllData(Principal principal) throws AccessRestrictedException {

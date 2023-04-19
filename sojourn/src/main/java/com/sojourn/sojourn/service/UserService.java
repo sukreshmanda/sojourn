@@ -48,7 +48,7 @@ public class UserService implements UserDetailsService {
         return objectService.getAllUserData(userAccessing);
     }
 
-    public void insertDataObject(Map<String, Object> dataObject, String userAccessing) {
-        objectService.createDataObject(userAccessing, dataObject);
+    public String insertDataObject(Map<String, Object> dataObject, String userAccessing) {
+        return objectService.createDataObject(userAccessing, dataObject);
     }
 }
