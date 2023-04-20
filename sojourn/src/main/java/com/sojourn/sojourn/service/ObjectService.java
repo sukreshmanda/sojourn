@@ -20,19 +20,23 @@ import java.util.stream.Collectors;
 
 @Service
 public class ObjectService {
-    @Autowired
-    private ObjectRepository objectRepository;
+    private final ObjectRepository objectRepository;
+
+    private final UserRepository userRepository;
+
+    private final MessageDigest sha256;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private MessageDigest sha256;
+    public ObjectService(ObjectRepository objectRepository, UserRepository userRepository, MessageDigest sha256) {
+        this.objectRepository = objectRepository;
+        this.userRepository = userRepository;
+        this.sha256 = sha256;
+    }
 
     public DataObject getDataObjectById(String userAccessing, String id) throws DataNotFoundException, AccessRestrictedException {
         User user = userRepository.loadUserByUserName(userAccessing);
         DataObject dataObject = objectRepository.findById(id).orElseThrow(() -> new DataNotFoundException(id));
-        if (dataObject.getAccessibleTo().contains(userAccessing) || user.getUserRoles().contains(UserRoles.ADMIN))
+        if (dataObject.isAccessibleTo(userAccessing) || user.isAdmin(UserRoles.ADMIN))
             return dataObject;
         else throw new AccessRestrictedException(dataObject.getId(), userAccessing);
     }

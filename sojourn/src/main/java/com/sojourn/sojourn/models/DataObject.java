@@ -22,4 +22,8 @@ public class DataObject {
 //    @Indexed( name = "createdIndex", expireAfter = "30s")
     private LocalDateTime createdAt;
     private List<String> accessibleTo;
+
+    public boolean isAccessibleTo(String userAccessing) {
+        return accessibleTo.contains(userAccessing);
+    }
 }
