@@ -19,14 +19,18 @@ import java.util.Map;
 @Service
 public class UserService implements UserDetailsService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    private final ObjectService objectService;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private ObjectService objectService;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    public UserService(UserRepository userRepository, ObjectService objectService, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.objectService = objectService;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

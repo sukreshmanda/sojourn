@@ -23,15 +23,15 @@ import static org.mockito.Mockito.when;
 
 class ObjectServiceTest {
 
-    public static final ObjectRepository objectRepositoryMock = mock(ObjectRepository.class);
-    public static final UserRepository userRepositoryMock = mock(UserRepository.class);
-    public static final MessageDigest messageDigestMock = mock(MessageDigest.class);
     public static final String FAKE_USER = "FakeUser";
     public static final String FAKE_ID = "Fake_id";
     public static final String FAKE_DIGEST = "asdfgt56erfwerfgby654erv rtyytr";
 
     @Test
     void shouldGetDataObjectById() throws DataNotFoundException, AccessRestrictedException {
+        ObjectRepository objectRepositoryMock = mock(ObjectRepository.class);
+        UserRepository userRepositoryMock = mock(UserRepository.class);
+        MessageDigest messageDigestMock = mock(MessageDigest.class);
         ObjectService objectService = new ObjectService(objectRepositoryMock, userRepositoryMock, messageDigestMock);
         when(userRepositoryMock.loadUserByUserName(FAKE_USER)).thenReturn(userBuilder().username(FAKE_USER).build());
         when(objectRepositoryMock.findById(FAKE_ID)).thenReturn(
@@ -43,6 +43,9 @@ class ObjectServiceTest {
     }
     @Test
     void shouldThrowDataNotFoundExceptionWhenGetDataObjectByIdNotFound() {
+        ObjectRepository objectRepositoryMock = mock(ObjectRepository.class);
+        UserRepository userRepositoryMock = mock(UserRepository.class);
+        MessageDigest messageDigestMock = mock(MessageDigest.class);
         ObjectService objectService = new ObjectService(objectRepositoryMock, userRepositoryMock, messageDigestMock);
         when(userRepositoryMock.loadUserByUserName(FAKE_USER)).thenReturn(userBuilder().username(FAKE_USER).build());
         when(objectRepositoryMock.findById(FAKE_ID)).thenReturn(Optional.empty());
@@ -52,6 +55,9 @@ class ObjectServiceTest {
 
     @Test
     void shouldThrowAccessRestrictedExceptionWhenGetDataObjectByIdNotAccessible() {
+        ObjectRepository objectRepositoryMock = mock(ObjectRepository.class);
+        UserRepository userRepositoryMock = mock(UserRepository.class);
+        MessageDigest messageDigestMock = mock(MessageDigest.class);
         ObjectService objectService = new ObjectService(objectRepositoryMock, userRepositoryMock, messageDigestMock);
         when(userRepositoryMock.loadUserByUserName(FAKE_USER)).thenReturn(userBuilder().username(FAKE_USER).build());
         when(objectRepositoryMock.findById(FAKE_ID)).thenReturn(
@@ -61,6 +67,9 @@ class ObjectServiceTest {
     }
     @Test
     void shouldGetDataObjectByIdForAdminWhenDataIsNotAllowedToView() throws DataNotFoundException, AccessRestrictedException {
+        ObjectRepository objectRepositoryMock = mock(ObjectRepository.class);
+        UserRepository userRepositoryMock = mock(UserRepository.class);
+        MessageDigest messageDigestMock = mock(MessageDigest.class);
         ObjectService objectService = new ObjectService(objectRepositoryMock, userRepositoryMock, messageDigestMock);
         when(userRepositoryMock.loadUserByUserName(FAKE_USER)).thenReturn(userBuilder().userRoles(Collections.singletonList(UserRoles.ADMIN)).username(FAKE_USER).build());
         when(objectRepositoryMock.findById(FAKE_ID)).thenReturn(
@@ -72,6 +81,9 @@ class ObjectServiceTest {
     }
     @Test
     void shouldCreateDataObject() {
+        ObjectRepository objectRepositoryMock = mock(ObjectRepository.class);
+        UserRepository userRepositoryMock = mock(UserRepository.class);
+        MessageDigest messageDigestMock = mock(MessageDigest.class);
         ObjectService objectService = new ObjectService(objectRepositoryMock, userRepositoryMock, messageDigestMock);
         when(objectRepositoryMock.save(any(DataObject.class))).thenReturn(dataObjectBuilder().id(FAKE_ID).build());
         when(messageDigestMock.digest(any())).thenReturn(FAKE_DIGEST.getBytes());
@@ -83,6 +95,9 @@ class ObjectServiceTest {
 
     @Test
     void shouldGetAllDataWhenAdminAccess() throws AccessRestrictedException {
+        ObjectRepository objectRepositoryMock = mock(ObjectRepository.class);
+        UserRepository userRepositoryMock = mock(UserRepository.class);
+        MessageDigest messageDigestMock = mock(MessageDigest.class);
         List<DataObject> emptyList = Collections.emptyList();
         ObjectService objectService = new ObjectService(objectRepositoryMock, userRepositoryMock, messageDigestMock);
         when(userRepositoryMock.loadUserByUserName(FAKE_USER)).thenReturn(userBuilder().username(FAKE_USER)
@@ -95,6 +110,9 @@ class ObjectServiceTest {
     }
     @Test
     void shouldThrowAccessRestrictedExceptionGetAllDataAccessedByNonAdmin() throws AccessRestrictedException {
+        ObjectRepository objectRepositoryMock = mock(ObjectRepository.class);
+        UserRepository userRepositoryMock = mock(UserRepository.class);
+        MessageDigest messageDigestMock = mock(MessageDigest.class);
         List<DataObject> emptyList = Collections.emptyList();
         ObjectService objectService = new ObjectService(objectRepositoryMock, userRepositoryMock, messageDigestMock);
         when(userRepositoryMock.loadUserByUserName(FAKE_USER)).thenReturn(userBuilder().username(FAKE_USER).build());
