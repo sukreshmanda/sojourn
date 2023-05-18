@@ -1,11 +1,11 @@
 package com.sojourn.sojourn;
 
-import com.sojourn.sojourn.models.DataObject;
-import com.sojourn.sojourn.models.User;
-import com.sojourn.sojourn.models.UserRoles;
-import com.sojourn.sojourn.models.UserSignUpRequest;
-import com.sojourn.sojourn.models.dto.auth.AuthenticationRequest;
-import com.sojourn.sojourn.models.dto.auth.AuthenticationResponse;
+import com.sojourn.sojourn.object.DataObject;
+import com.sojourn.sojourn.user.User;
+import com.sojourn.sojourn.user.UserRoles;
+import com.sojourn.sojourn.user.UserSignUpRequest;
+import com.sojourn.sojourn.auth.AuthenticationRequest;
+import com.sojourn.sojourn.auth.AuthenticationResponse;
 
 import java.time.LocalDateTime;
 import java.util.Collections;

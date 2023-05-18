@@ -2,10 +2,11 @@ package com.sojourn.sojourn.service;
 
 import com.sojourn.sojourn.exceptions.AccessRestrictedException;
 import com.sojourn.sojourn.exceptions.DataNotFoundException;
-import com.sojourn.sojourn.models.DataObject;
-import com.sojourn.sojourn.models.UserRoles;
-import com.sojourn.sojourn.repository.ObjectRepository;
-import com.sojourn.sojourn.repository.UserRepository;
+import com.sojourn.sojourn.object.DataObject;
+import com.sojourn.sojourn.user.UserRoles;
+import com.sojourn.sojourn.object.ObjectService;
+import com.sojourn.sojourn.object.ObjectRepository;
+import com.sojourn.sojourn.user.UserRepository;
 import org.junit.jupiter.api.Test;
 
 import java.security.MessageDigest;

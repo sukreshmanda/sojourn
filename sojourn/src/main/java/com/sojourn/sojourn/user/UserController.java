@@ -1,13 +1,10 @@
-package com.sojourn.sojourn.controller;
+package com.sojourn.sojourn.user;
 
-import com.sojourn.sojourn.config.jwt.JWTUtil;
+import com.sojourn.sojourn.auth.jwt.JWTUtil;
 import com.sojourn.sojourn.exceptions.UserAlreadyExistsException;
-import com.sojourn.sojourn.models.DataObject;
-import com.sojourn.sojourn.models.User;
-import com.sojourn.sojourn.models.UserSignUpRequest;
-import com.sojourn.sojourn.models.dto.auth.AuthenticationRequest;
-import com.sojourn.sojourn.models.dto.auth.AuthenticationResponse;
-import com.sojourn.sojourn.service.UserService;
+import com.sojourn.sojourn.object.DataObject;
+import com.sojourn.sojourn.auth.AuthenticationRequest;
+import com.sojourn.sojourn.auth.AuthenticationResponse;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.slf4j.Logger;

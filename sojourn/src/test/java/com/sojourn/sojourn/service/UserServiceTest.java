@@ -1,7 +1,9 @@
 package com.sojourn.sojourn.service;
 
-import com.sojourn.sojourn.models.User;
-import com.sojourn.sojourn.repository.UserRepository;
+import com.sojourn.sojourn.user.User;
+import com.sojourn.sojourn.object.ObjectService;
+import com.sojourn.sojourn.user.UserRepository;
+import com.sojourn.sojourn.user.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;

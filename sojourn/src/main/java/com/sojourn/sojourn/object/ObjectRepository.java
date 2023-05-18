@@ -1,6 +1,5 @@
-package com.sojourn.sojourn.repository;
+package com.sojourn.sojourn.object;
 
-import com.sojourn.sojourn.models.DataObject;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface ObjectRepository extends MongoRepository<DataObject, String> {

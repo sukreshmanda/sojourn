@@ -1,6 +1,5 @@
-package com.sojourn.sojourn.repository;
+package com.sojourn.sojourn.user;
 
-import com.sojourn.sojourn.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

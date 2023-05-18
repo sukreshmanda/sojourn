@@ -1,4 +1,4 @@
-package com.sojourn.sojourn.config.jwt;
+package com.sojourn.sojourn.auth.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

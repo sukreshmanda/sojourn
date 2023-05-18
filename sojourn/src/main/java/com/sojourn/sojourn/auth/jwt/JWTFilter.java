@@ -1,6 +1,6 @@
-package com.sojourn.sojourn.config.jwt;
+package com.sojourn.sojourn.auth.jwt;
 
-import com.sojourn.sojourn.service.UserService;
+import com.sojourn.sojourn.user.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

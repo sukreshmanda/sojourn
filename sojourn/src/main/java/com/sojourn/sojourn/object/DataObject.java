@@ -1,4 +1,4 @@
-package com.sojourn.sojourn.models;
+package com.sojourn.sojourn.object;
 
 
 import lombok.*;
