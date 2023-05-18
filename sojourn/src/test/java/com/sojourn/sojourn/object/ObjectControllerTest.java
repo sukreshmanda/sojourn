@@ -3,9 +3,6 @@ package com.sojourn.sojourn.object;
 
 import com.sojourn.sojourn.exceptions.AccessRestrictedException;
 import com.sojourn.sojourn.exceptions.DataNotFoundException;
-import com.sojourn.sojourn.object.DataObject;
-import com.sojourn.sojourn.object.ObjectController;
-import com.sojourn.sojourn.object.ObjectService;
 import org.junit.jupiter.api.Test;
 
 import java.security.Principal;
