@@ -1,4 +1,4 @@
-package com.sojourn.sojourn.service;
+package com.sojourn.sojourn.object;
 
 import com.sojourn.sojourn.exceptions.AccessRestrictedException;
 import com.sojourn.sojourn.exceptions.DataNotFoundException;

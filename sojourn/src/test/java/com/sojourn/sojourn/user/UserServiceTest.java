@@ -1,4 +1,4 @@
-package com.sojourn.sojourn.service;
+package com.sojourn.sojourn.user;
 
 import com.sojourn.sojourn.user.User;
 import com.sojourn.sojourn.object.ObjectService;

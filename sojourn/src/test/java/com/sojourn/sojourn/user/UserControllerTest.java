@@ -1,4 +1,4 @@
-package com.sojourn.sojourn.controller;
+package com.sojourn.sojourn.user;
 
 import com.sojourn.sojourn.auth.jwt.JWTUtil;
 import com.sojourn.sojourn.exceptions.UserAlreadyExistsException;

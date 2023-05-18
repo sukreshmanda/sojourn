@@ -1,4 +1,4 @@
-package com.sojourn.sojourn.controller;
+package com.sojourn.sojourn.object;
 
 
 import com.sojourn.sojourn.exceptions.AccessRestrictedException;
