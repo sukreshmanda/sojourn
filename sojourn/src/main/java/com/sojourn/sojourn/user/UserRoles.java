@@ -1,4 +1,4 @@
-package com.sojourn.sojourn.models;
+package com.sojourn.sojourn.user;
 
 import org.springframework.security.core.GrantedAuthority;
 

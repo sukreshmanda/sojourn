@@ -1,4 +1,4 @@
-package com.sojourn.sojourn.config;
+package com.sojourn.sojourn.db;
 
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;

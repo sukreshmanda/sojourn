@@ -1,10 +1,8 @@
-package com.sojourn.sojourn.controller;
+package com.sojourn.sojourn.object;
 
 
 import com.sojourn.sojourn.exceptions.AccessRestrictedException;
 import com.sojourn.sojourn.exceptions.DataNotFoundException;
-import com.sojourn.sojourn.models.DataObject;
-import com.sojourn.sojourn.service.ObjectService;
 import org.junit.jupiter.api.Test;
 
 import java.security.Principal;

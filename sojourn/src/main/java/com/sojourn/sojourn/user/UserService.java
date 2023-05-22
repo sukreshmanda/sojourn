@@ -1,11 +1,8 @@
-package com.sojourn.sojourn.service;
+package com.sojourn.sojourn.user;
 
 import com.sojourn.sojourn.exceptions.UserAlreadyExistsException;
-import com.sojourn.sojourn.models.DataObject;
-import com.sojourn.sojourn.models.User;
-import com.sojourn.sojourn.models.UserRoles;
-import com.sojourn.sojourn.models.UserSignUpRequest;
-import com.sojourn.sojourn.repository.UserRepository;
+import com.sojourn.sojourn.object.DataObject;
+import com.sojourn.sojourn.object.ObjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,14 +16,18 @@ import java.util.Map;
 @Service
 public class UserService implements UserDetailsService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    private final ObjectService objectService;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private ObjectService objectService;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    public UserService(UserRepository userRepository, ObjectService objectService, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.objectService = objectService;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

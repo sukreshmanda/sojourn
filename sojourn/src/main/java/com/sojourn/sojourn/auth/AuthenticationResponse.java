@@ -1,4 +1,4 @@
-package com.sojourn.sojourn.models.dto.auth;
+package com.sojourn.sojourn.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AuthenticationRequest {
-    private String username;
-    private String password;
+public class AuthenticationResponse {
+    private String token;
 }

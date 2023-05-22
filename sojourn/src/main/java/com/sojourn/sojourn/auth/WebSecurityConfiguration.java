@@ -1,8 +1,8 @@
-package com.sojourn.sojourn.config;
+package com.sojourn.sojourn.auth;
 
-import com.sojourn.sojourn.config.jwt.JWTFilter;
-import com.sojourn.sojourn.config.jwt.JWTUtil;
-import com.sojourn.sojourn.service.UserService;
+import com.sojourn.sojourn.auth.jwt.JWTFilter;
+import com.sojourn.sojourn.auth.jwt.JWTUtil;
+import com.sojourn.sojourn.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

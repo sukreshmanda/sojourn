@@ -1,4 +1,4 @@
-package com.sojourn.sojourn.models;
+package com.sojourn.sojourn.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotNull;

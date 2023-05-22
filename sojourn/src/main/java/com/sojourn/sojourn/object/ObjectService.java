@@ -1,12 +1,10 @@
-package com.sojourn.sojourn.service;
+package com.sojourn.sojourn.object;
 
 import com.sojourn.sojourn.exceptions.AccessRestrictedException;
 import com.sojourn.sojourn.exceptions.DataNotFoundException;
-import com.sojourn.sojourn.models.DataObject;
-import com.sojourn.sojourn.models.User;
-import com.sojourn.sojourn.models.UserRoles;
-import com.sojourn.sojourn.repository.ObjectRepository;
-import com.sojourn.sojourn.repository.UserRepository;
+import com.sojourn.sojourn.user.User;
+import com.sojourn.sojourn.user.UserRoles;
+import com.sojourn.sojourn.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
